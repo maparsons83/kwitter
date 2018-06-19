@@ -8,7 +8,7 @@ export class Feed extends Components {
         return (
             <section>
                 <form className="messageForm">
-                <textarea className="messagebox" placeholder="Your kweet goes here..." maxlength="140"></textarea>
+                    <textarea className="messagebox" placeholder="Your kweet goes here..." maxlength="140"></textarea>
                 </form>
                 <section className="liveFeed">
                     This is where the live feed will be.
