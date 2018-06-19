@@ -8,6 +8,7 @@ import App from './components/App';
 import kwitterAppReducer from "./reducer.js";
 import registerServiceWorker from './registerServiceWorker';
 
+
 const store = createStore(kwitterAppReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
  
 ReactDOM.render(
