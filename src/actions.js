@@ -1,6 +1,6 @@
-export function markLiked(id) {
+export function toggleLiked(id) {
     return ({
-        type: MARK_LIKED,
+        type: TOGGLE_LIKED,
         id
     })
 }
