@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import '../App.css';
+import {Feed} from "./Feed.jsx";
+import {FeedItem} from "./FeedItem.jsx";
 import { Button, Form, Divider, Container, Header, Icon } from "semantic-ui-react";
 
 class App extends Component {
