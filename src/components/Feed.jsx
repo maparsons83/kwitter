@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import "../index.css";
-import { connect } from "react-redux";
 import '../App.css';
+import { Container, Form, Divider, Segment, Icon, TextArea } from "semantic-ui-react";
 
-export class Feed extends Components {
+export class Feed extends Component {
     render() {
         return (
-            <section>
-                <form className="messageForm">
-                    <textarea className="messagebox" placeholder="Your kweet goes here..." maxlength="140"></textarea>
-                </form>
-                <section className="liveFeed">
-                    This is where the live feed will be.
-                </section>
-            </section>
+            <Container text>
+                <Icon.Group size="large">
+                <Icon name="dont" inverted color="teal" size="big"/>  
+                <Icon name="twitter"inverted color="black"/>
+                </Icon.Group>
+                <Segment text inverted color="teal">
+                    <Form>
+                        <TextArea fluid label="Message Box" size="huge" placeholder="Start kweeting" />
+                    </Form>
+                </Segment>
+                <Divider horizontal></Divider>
+            </Container>
         
     )}
 }
