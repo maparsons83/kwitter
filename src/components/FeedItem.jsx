@@ -1,30 +1,36 @@
 import React, { Component } from "react";
-import { Feed, Icon } from "semantic-ui-react";
+import { Feed, Icon, Divider } from "semantic-ui-react";
 
 export default class FeedItem extends Component {
+    
     render() {
         return (
+            <React.Fragment>
+            {this.props.messages.map( (item, index) => 
             <Feed>
+                
                 <Feed.Event>
                     <Feed.Label>
                         {/* <img src= /> */}
                     </Feed.Label>
                     <Feed.Content>
                         <Feed.Summary>
-                        <Feed.User>Matty P</Feed.User>
-                        <Feed.Date>2 days ago</Feed.Date>
+                        <Feed.User>{item.userId}</Feed.User>
+                        <Feed.Date>{item.createdAt}</Feed.Date>
                         <Feed.Extra text>
-                            Gee wiz! Sure is nice weather we're having.
+                            {item.text}
                         </Feed.Extra>     
                         </Feed.Summary>
                         <Feed.Meta>
                         <Feed.Like>
                             <Icon name='like' />
-                            4 Likes
+                            {item.likes.length} likes
                         </Feed.Like>
                         </Feed.Meta>
                     </Feed.Content>
                     </Feed.Event>
-            </Feed>  
+            </Feed>   
+        )}
+        </React.Fragment> 
     )}
 }
