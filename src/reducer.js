@@ -1,23 +1,27 @@
+import { ADD_FEED_ITEM, REGISTER_USER, LOGIN_USER } from './actions.js';
 
- 
-
-
-import { ADD_FEED_ITEM } from './actions.js';
-import { REGISTER_USER } from "./actions.js";
 const initialState = {
     username: "",
-    displayName: ""
-
+    displayName: "",
+    token: "",
+    success: ""
 }
 
 export default function kwitterAppReducer (state = initialState, action) {
     switch(action.type) {
    
         case REGISTER_USER:
-        console.log(action)
+        console.log("action: ", action)
             return (Object.assign({}, state, {
                 username: action.payload.username,
                 displayName: action.payload.displayName
+                })
+            )
+        case LOGIN_USER:
+        console.log("action: ", action)
+            return (Object.assign({}, state, {
+                token: action.payload.token,
+                success: action.payload.success
                 })
             )
          //     case ADD_FEED_ITEM:

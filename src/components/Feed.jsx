@@ -20,6 +20,5 @@ export default class Feed extends Component {
             <FeedItem />
             </Container>
             </React.Fragment>
-        
     )}
 }
