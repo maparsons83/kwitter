@@ -14,7 +14,7 @@ export default class FeedItem extends Component {
                         <Feed.User>Matty P</Feed.User>
                         <Feed.Date>2 days ago</Feed.Date>
                         <Feed.Extra text>
-                            Gee wiz! Sure is nice weather we're having.
+                            {this.props.text}
                         </Feed.Extra>     
                         </Feed.Summary>
                         <Feed.Meta>
