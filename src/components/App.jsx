@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import {
   Button,
@@ -7,9 +8,12 @@ import {
   Header,
   Icon
 } from "semantic-ui-react";
+        
+import { Banner } from "./Banner.jsx";
 import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../actions.js";
+
 
 class App extends Component {
   constructor(props) {
@@ -78,7 +82,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <Container text>
-          <Container>
+          <Banner />
+          <Header as="h1">Welcome to Kwitter!</Header>
+          <Container text>
             <Icon.Group size="huge">
               <Icon name="dont" inverted color="teal" size="big" />
               <Icon name="twitter" inverted color="black" />

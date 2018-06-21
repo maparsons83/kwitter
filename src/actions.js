@@ -1,6 +1,8 @@
+
 export const REGISTER_USER = "REGISTER_USER";
 export const TOGGLE_LIKED = "TOGGLE_LIKED";
 export const LOGOUT = "LOGOUT";
+export const ADD_FEED_ITEM = 'ADD_FEED_ITEM'
 
 export function registerUser(data) {
     return({
@@ -22,3 +24,9 @@ export function logout(id) {
         id
     })
 }
+// export function addFeedItem (id) {
+//     return({
+//         type: ADD_FEED_ITEM,
+//         id
+//     })
+// }
