@@ -11,6 +11,7 @@ import {
 import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../actions.js";
+import { Feed } from './Feed.jsx';
 
 export class App extends Component {
   constructor(props) {

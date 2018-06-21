@@ -9,9 +9,9 @@ export default class Feed extends Component {
             <React.Fragment>
                 <br />
             <Container text>
-                <Segment text inverted color="teal">
+                <Segment text inverted color="blue">
                     <Form>
-                        <TextArea fluid label="Message Box" size="huge" placeholder="Start kweeting" />
+                        <TextArea fluid label="Message Box" maxlength="280" size="huge" placeholder="Start kweeting" />
                     </Form>
                 </Segment>
                 <Divider horizontal></Divider>

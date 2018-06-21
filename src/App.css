@@ -36,3 +36,9 @@
   font-size: 50pt !important;
   margin-top: 3%;
 }
+
+#messageBorder {
+  color: rgb(0, 255, 255);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
