@@ -8,15 +8,12 @@ import {
   Header,
   Icon
 } from "semantic-ui-react";
-        
-import { Banner } from "./Banner.jsx";
 import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../actions.js";
 import { Feed } from './Feed.jsx';
 
-
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,14 +80,12 @@ class App extends Component {
     return (
       <React.Fragment>
         <Container text>
-          <Feed />
-          <Header as="h1">Welcome to Kwitter!</Header>
-          <Container text>
+          {/* <Container text>
             <Icon.Group size="huge">
               <Icon name="dont" inverted color="teal" size="big" />
               <Icon name="twitter" inverted color="black" />
             </Icon.Group>
-          </Container>
+          </Container> */}
           <Header as="h1">Welcome to Kwitter!</Header>
           <Container text>
             <Header as="h2">New to Kwitter? Register here!</Header>
