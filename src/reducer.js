@@ -1,12 +1,26 @@
-import { ADD_FEED_ITEM } from './actions.js'; 
 
+ 
+
+
+import { ADD_FEED_ITEM } from './actions.js';
+import { REGISTER_USER } from "./actions.js";
 const initialState = {
-    // messages: messageList,
+    username: "",
+    displayName: ""
+
 }
 
 export default function kwitterAppReducer (state = initialState, action) {
     switch(action.type) {
-    //     case ADD_FEED_ITEM:
+   
+        case REGISTER_USER:
+        console.log(action)
+            return (Object.assign({}, state, {
+                username: action.payload.username,
+                displayName: action.payload.displayName
+                })
+            )
+         //     case ADD_FEED_ITEM:
     //         return Object.assign({}, state, {
     //             messages: [...state.messages,
     //             {
@@ -18,5 +32,7 @@ export default function kwitterAppReducer (state = initialState, action) {
     //             }
     //         ]
     //     })
+        default: 
+            return state;
     }
 }
