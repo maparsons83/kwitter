@@ -34,7 +34,7 @@ export default class Feed extends Component {
                 <Divider horizontal></Divider>
             </Container>
             <Container>
-            <FeedItem />
+            <FeedItem messages={this.state.messages} />
             </Container>
             </React.Fragment>
     )}
