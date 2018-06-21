@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Feed, Icon } from "semantic-ui-react";
 
-export class FeedItem extends Component {
+export default class FeedItem extends Component {
     render() {
         return (
             <Feed>
