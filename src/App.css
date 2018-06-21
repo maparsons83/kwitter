@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#banner {
+  background: white;
+  border: 1px rgb(44, 230, 230) solid;
+}
+
+#bannerText {
+  font-size: 50pt !important;
+  margin-top: 3%;
+}

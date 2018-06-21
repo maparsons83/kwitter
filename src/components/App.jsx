@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import '../App.css';
-import {Feed} from "./Feed.jsx";
-import {FeedItem} from "./FeedItem.jsx";
+import { Feed } from "./Feed.jsx";
+import { FeedItem } from "./FeedItem.jsx";
+import { Banner } from "./Banner.jsx";
 import { Button, Form, Divider, Container, Header, Icon } from "semantic-ui-react";
 
 class App extends Component {
   render() {
     return (
             <Container text>
-                <Container>
-                <Icon.Group size="huge">
-                <Icon name="dont" inverted color="teal" size="big"/>  
-                <Icon name="twitter"inverted color="black"/>
-                </Icon.Group>
-                </Container>
+                <Banner />
                 <Header as="h1">Welcome to Kwitter!</Header>
                 <Container text>
                     <Header as="h2">New to Kwitter?  Register here!</Header>
@@ -45,6 +41,7 @@ class App extends Component {
                         </Form>
                 </Container>
             </Container>
+            
     );
   }
 }
