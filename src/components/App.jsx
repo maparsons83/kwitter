@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import "../App.css";
-import { Feed } from "./Feed.jsx";
-import { FeedItem } from "./FeedItem.jsx";
 import {
   Button,
   Form,
@@ -12,7 +8,7 @@ import {
   Icon
 } from "semantic-ui-react";
 import { Link, Route, Switch } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { registerUser } from "../actions.js";
 
 class App extends Component {
@@ -24,9 +20,11 @@ class App extends Component {
       confirmPassword: ""
     };
   }
+
   handleChange = field => e => {
     this.setState({ [field]: e.target.value });
   };
+
   handleRegisterSubmit = e => {
     e.preventDefault();
     const postOptions = {
@@ -46,12 +44,13 @@ class App extends Component {
       .then(data => {
         console.log(data);
         this.props.dispatch(registerUser(data));
-      }).catch(e => {
+      })
+      .catch(e => {
         console.log(e);
       });
   };
 
-  handleLoginSubmit = (e) => {
+  handleLoginSubmit = e => {
     e.preventDefault();
     const postOptions = {
       method: "POST",
@@ -64,12 +63,14 @@ class App extends Component {
         password: this.state.loginPassword
       })
     };
+
     fetch("https://kwitter-api.herokuapp.com/auth/login", postOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
-      }).catch(e => {
-        console.log(e)
+      })
+      .catch(e => {
+        console.log(e);
       });
   };
 
@@ -158,19 +159,17 @@ class App extends Component {
             </Button>
           </Container>
         </Container>
-        {/* <Switch>
-                <Route exact path="/messages" render={ props => <Feed {...props} />}   />
-            </Switch> */}
       </React.Fragment>
     );
   }
 }
-const mapStateToProps = (state) => {
-    return {
-        username: state.username,
-        password: state.password,
-        displayName: state.displayName
-    }
-  }
+
+const mapStateToProps = state => {
+  return {
+    username: state.username,
+    password: state.password,
+    displayName: state.displayName
+  };
+};
 
 export default connect(mapStateToProps)(App);
