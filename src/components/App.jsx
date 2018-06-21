@@ -13,6 +13,7 @@ import { Banner } from "./Banner.jsx";
 import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../actions.js";
+import { Feed } from './Feed.jsx';
 
 
 class App extends Component {
@@ -82,7 +83,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Container text>
-          <Banner />
+          <Feed />
           <Header as="h1">Welcome to Kwitter!</Header>
           <Container text>
             <Icon.Group size="huge">

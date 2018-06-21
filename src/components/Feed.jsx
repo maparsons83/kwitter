@@ -9,15 +9,13 @@ export class Feed extends Component {
         return (
             <Route exact path="/messages">
             <Container text>
-                <Banner />
-                <Segment text inverted color="teal">
+                <Segment text inverted color="teal" >
                     <Form>
-                        <TextArea fluid label="Message Box" size="huge" placeholder="Start kweeting" />
+                        <TextArea fluid label="Message Box" maxlength="280" size="huge" placeholder="Start kweeting" />
                     </Form>
                 </Segment>
                 <Divider horizontal></Divider>
-            </Container>
-            <FeedItem />
+            </Container>          
             </Route>
         
     )}
