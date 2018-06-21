@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { registerUser } from "../actions.js";
+import { registerUser, loginUser } from "../actions.js";
 import { Feed } from './Feed.jsx';
 
 export class App extends Component {
@@ -70,9 +70,11 @@ export class App extends Component {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-      })
+        this.props.dispatch(loginUser(data));
+      }).then
       .catch(e => {
         console.log(e);
+        
       });
   };
 
