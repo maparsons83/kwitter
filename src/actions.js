@@ -30,6 +30,7 @@ export function logout(id) {
         id
     })
 }
+
 // export function addFeedItem (id) {
 //     return({
 //         type: ADD_FEED_ITEM,
