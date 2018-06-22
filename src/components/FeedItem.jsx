@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import { Feed, Icon } from "semantic-ui-react";
 
+
+export default class FeedItem extends React.Component {
+
+state = {likes : 0}
+likeButton = () => {
+    this.setState({
+        likes : this.state.likes + 1
+    })
+}
+
+
 export default class FeedItem extends Component {
     constructor(props) {
         super(props);
@@ -16,6 +27,7 @@ export default class FeedItem extends Component {
         let newDate = date.toLocaleTimeString("en-us", options)
         return newDate
 } 
+
 
     
     render() {
@@ -38,7 +50,8 @@ export default class FeedItem extends Component {
                         </Feed.Summary>
                         <Feed.Meta>
                         <Feed.Like>
-                            <Icon name='like' />
+                            <Icon  name='like' />
+                            {/* {this.state.likes} */}
                             {item.likes.length} likes
                         </Feed.Like>
                         </Feed.Meta>

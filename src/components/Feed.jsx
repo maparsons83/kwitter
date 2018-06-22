@@ -6,7 +6,8 @@ import { withRouter } from "react-router";
 
 class Feed extends Component {
     state = {
-        messages: []    
+        messages: [],
+        textAreaText: ""  
     }
     componentDidMount() {
         fetch("https://kwitter-api.herokuapp.com/messages") 
@@ -22,22 +23,57 @@ class Feed extends Component {
     handleTextChange = (e) => {
         this.setState({ textAreaText: e.target.value })
     }
+
     handleKeyPress = (e) => {
         if (e.key === "Enter") {
             console.log(e.key)
         }
 
-    }
+
+
+    messageSubmit = e => {
+        e.preventDefault();
+        const postOptions = {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization" : `Bearer ${this.props.token}`,
+
+
+          },
+          body: JSON.stringify({
+            text : this.state.textAreaText
+          })
+        };
+       
+        fetch("https://kwitter-api.herokuapp.com/messages", postOptions)
+          .then(response => response.json())
+           .then(data =>{
+               console.log(data)
+               this.setState({
+                   textAreaText : ""
+                })
+           })  
+          .catch(e => {
+            // console.log(e)
+            
+          });
+          
+        };
 
     
     render() {
+        console.log(this.state.messages)
+        console.log("token", this.props.token)
         return (
             <React.Fragment>
                 <br />
             <Container text>
                 <Segment text inverted color="blue">
                     <Form on>
-                        <TextArea onChange={this.handleTextChange} onKeyPress={this.handleKeyPress} fluid label="Message Box" maxlength="280" size="huge" placeholder="Start kweeting" />
+                        <button onClick= {this.messageSubmit} id='submit'> Submit </button>
+                        <TextArea onChange={this.handleTextChange} value= {this.state.textAreaText} fluid label="Message Box" maxlength="140" size="huge" placeholder="Start kweeting" />
                     </Form>
                 </Segment>
                 <Divider horizontal></Divider>
@@ -48,4 +84,10 @@ class Feed extends Component {
             </React.Fragment>
     )}
 }
-export default withRouter(connect()(Feed));
+// for messages
+const mapStateToProps = state => {
+    return {
+        token : state.token
+    }
+}
+export default withRouter(connect(mapStateToProps)(Feed));
