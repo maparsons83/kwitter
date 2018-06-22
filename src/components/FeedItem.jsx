@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import { Feed, Icon } from "semantic-ui-react";
 
 
-export default class FeedItem extends React.Component {
-
-state = {likes : 0}
-likeButton = () => {
-    this.setState({
-        likes : this.state.likes + 1
-    })
-}
+// state = {likes : 0}
+// likeButton = () => {
+//     this.setState({
+//         likes : this.state.likes + 1
+//     })
+// }
 
 
 export default class FeedItem extends Component {

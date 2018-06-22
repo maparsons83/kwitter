@@ -71,7 +71,7 @@ export class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.props.dispatch(loginUser(data));
-        this.props.success ? this.props.history.push("/messages") : alert("Oops! Invald username or password")
+        this.props.success ? this.props.history.push("/messages") : alert("Oops! Invalid username or password")
       })
       .catch(e => {
         console.log(e);
