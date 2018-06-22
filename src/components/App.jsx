@@ -158,11 +158,6 @@ export class App extends Component {
             </Form>
           </Container>
           <br />
-          <Container>
-            <Button inverted color="teal">
-              <Link to="/messages">Preview Posts</Link>
-            </Button>
-          </Container>
         </Container>
       </React.Fragment>
     );

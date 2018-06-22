@@ -14,7 +14,6 @@ export default class FeedItem extends Component {
         day: "numeric", hour: "2-digit", minute: "2-digit"  
         }
         let newDate = date.toLocaleTimeString("en-us", options)
-        console.log(newDate)
         return newDate
 } 
 
