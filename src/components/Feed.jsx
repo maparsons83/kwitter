@@ -9,17 +9,22 @@ class Feed extends Component {
         messages: [],
         textAreaText: ""  
     }
+
+    fetchMessages = () => {fetch("https://kwitter-api.herokuapp.com/messages") 
+    .then(results => {
+        return results.json();
+    }).then(data => {
+        console.log("data", data)
+        this.setState({messages: data.messages})}
+      
+        
+    ).catch((e) => console.log(e))}
+
+
     componentDidMount() {
-        fetch("https://kwitter-api.herokuapp.com/messages") 
-        .then(results => {
-            return results.json();
-        }).then(data => {
-            console.log("data", data)
-            this.setState({messages: data.messages})
-          
-            
-        }).catch((e) => console.log(e))
+        setInterval(this.fetchMessages, 3000);
     }
+
     handleTextChange = (e) => {
         this.setState({ textAreaText: e.target.value })
     }
@@ -28,7 +33,7 @@ class Feed extends Component {
         if (e.key === "Enter") {
             console.log(e.key)
         }
-
+    }
 
 
     messageSubmit = e => {
@@ -46,7 +51,7 @@ class Feed extends Component {
             text : this.state.textAreaText
           })
         };
-       
+        
         fetch("https://kwitter-api.herokuapp.com/messages", postOptions)
           .then(response => response.json())
            .then(data =>{
@@ -64,8 +69,7 @@ class Feed extends Component {
 
     
     render() {
-        console.log(this.state.messages)
-        console.log("token", this.props.token)
+
         return (
             <React.Fragment>
                 <br />
