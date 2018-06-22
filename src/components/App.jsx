@@ -8,10 +8,10 @@ import {
   Header,
   Icon
 } from "semantic-ui-react";
+import { withRouter } from "react-router";
 import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser, loginUser } from "../actions.js";
-import { Feed } from './Feed.jsx';
 
 export class App extends Component {
   constructor(props) {
@@ -19,7 +19,8 @@ export class App extends Component {
     this.state = {
       username: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      // loginSuccess: false
     };
   }
 
@@ -65,12 +66,12 @@ export class App extends Component {
         password: this.state.loginPassword
       })
     };
-
+   
     fetch("https://kwitter-api.herokuapp.com/auth/login", postOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.props.dispatch(loginUser(data));
+        this.props.success ? this.props.history.push("/messages") : alert("Oops! Invald username or password")
       })
       .catch(e => {
         console.log(e);
@@ -172,8 +173,10 @@ const mapStateToProps = state => {
   return {
     username: state.username,
     password: state.password,
-    displayName: state.displayName
+    displayName: state.displayName,
+    token: state.token,
+    success: state.success
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

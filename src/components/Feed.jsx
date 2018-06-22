@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Container, Form, Divider, Segment, Icon, TextArea } from "semantic-ui-react";
+import { connect } from "react-redux";
 import FeedItem from "./FeedItem.jsx";
+import { withRouter } from "react-router";
 
-
-export default class Feed extends Component {
+class Feed extends Component {
     state = {
         messages: []    
     }
@@ -16,9 +17,16 @@ export default class Feed extends Component {
             this.setState({messages: data.messages})
           
             
-        }).then( data => data ? console.log(this.state.messages): setInterval(console.log(this.state.messages), 5000)
-        )
-        
+        }).catch((e) => console.log(e))
+    }
+    handleTextChange = (e) => {
+        this.setState({ textAreaText: e.target.value })
+    }
+    handleKeyPress = (e) => {
+        if (e.key === "Enter") { 
+            alert(e.key)
+        }
+
     }
 
     
@@ -28,8 +36,8 @@ export default class Feed extends Component {
                 <br />
             <Container text>
                 <Segment text inverted color="blue">
-                    <Form>
-                        <TextArea fluid label="Message Box" maxlength="280" size="huge" placeholder="Start kweeting" />
+                    <Form on>
+                        <TextArea onChange={this.handleTextChange} onKeyPress={this.handleKeyPress} fluid label="Message Box" maxlength="280" size="huge" placeholder="Start kweeting" />
                     </Form>
                 </Segment>
                 <Divider horizontal></Divider>
@@ -40,3 +48,4 @@ export default class Feed extends Component {
             </React.Fragment>
     )}
 }
+export default withRouter(connect()(Feed));
