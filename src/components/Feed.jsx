@@ -14,6 +14,7 @@ export default class Feed extends Component {
         }).then(data => {
             console.log("data", data)
             this.setState({messages: data.messages})
+          
             
         }).then( data => data ? console.log(this.state.messages): setInterval(console.log(this.state.messages), 5000)
         )
