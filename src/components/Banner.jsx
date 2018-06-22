@@ -4,8 +4,10 @@ import { Icon, Container, Header } from 'semantic-ui-react';
 import { Link, Route, Switch } from "react-router-dom";
 import App  from "./App";
 import Feed from "./Feed";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
-export default class Banner extends Component {
+class Banner extends Component {
     constructor(props){
         super(props)
     }
@@ -35,3 +37,4 @@ export default class Banner extends Component {
     )}
 
 }
+export default withRouter(connect()(Banner));
