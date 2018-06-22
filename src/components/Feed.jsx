@@ -16,18 +16,19 @@ class Feed extends Component {
         }).then(data => {
             console.log("data", data)
             this.setState({messages: data.messages})
+          
             
         }).catch((e) => console.log(e))
     }
     handleTextChange = (e) => {
         this.setState({ textAreaText: e.target.value })
     }
-    // submitting kweets
-    // handleKeyPress = (e) => {
-    //     if (e.key === "Enter") { 
-    //         alert(e.key)
-    //     }
-    // }
+
+    handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            console.log(e.key)
+        }
+
 
 
     messageSubmit = e => {
