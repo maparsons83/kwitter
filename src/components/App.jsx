@@ -66,15 +66,13 @@ export class App extends Component {
         password: this.state.loginPassword
       })
     };
-
+   
     fetch("https://kwitter-api.herokuapp.com/auth/login", postOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.props.dispatch(loginUser(data));
-        console.log("this.props: ", this.props)
-         
-      }).then(this.props.history.push("/messages"))
+        this.props.success ? this.props.history.push("/messages") : alert("Oops! Invald username or password")
+      })
       .catch(e => {
         console.log(e);
         
