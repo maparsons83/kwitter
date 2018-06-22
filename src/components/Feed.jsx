@@ -15,6 +15,7 @@ class Feed extends Component {
         }).then(data => {
             console.log("data", data)
             this.setState({messages: data.messages})
+          
             
         }).catch((e) => console.log(e))
     }
