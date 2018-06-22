@@ -71,7 +71,7 @@ export class App extends Component {
       .then(data => {
         console.log(data);
         this.props.dispatch(loginUser(data));
-      }).then
+      })
       .catch(e => {
         console.log(e);
         
