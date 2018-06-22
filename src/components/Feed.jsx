@@ -23,8 +23,8 @@ class Feed extends Component {
         this.setState({ textAreaText: e.target.value })
     }
     handleKeyPress = (e) => {
-        if (e.key === "Enter") { 
-            alert(e.key)
+        if (e.key === "Enter") {
+            console.log(e.key)
         }
 
     }
